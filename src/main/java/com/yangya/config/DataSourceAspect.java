@@ -14,10 +14,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * AOP根据注解给上下文赋值
- * @ClassName DataSourceAspect
- * @Description TODO
- * @author lide
- * @date 2018年2月27日 下午4:12:01
  */
 @Aspect
 @Order(1)	//设置AOP执行顺序(需要在事务之前，否则事务只发生在默认库中)

@@ -13,11 +13,6 @@ import org.springframework.context.annotation.Primary;
 
 /**
  * 数据源配置
- * 
- * @ClassName DataSourceConfig
- * @Description TODO
- * @author lide
- * @date 2018年2月27日 下午1:21:39
  */
 @Configuration
 public class DataSourceConfig {

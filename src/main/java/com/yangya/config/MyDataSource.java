@@ -7,10 +7,6 @@ import java.lang.annotation.Target;
 
 /**
  * 数据源选择--自定义注解
- * @ClassName DataSource
- * @Description TODO
- * @author lide
- * @date 2018年2月27日 上午11:23:41
  */
 @Retention(RetentionPolicy.RUNTIME)  
 @Target(ElementType.METHOD) 
