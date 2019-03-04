@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yangya.mapper.AreaMapper" >
+  <resultMap id="BaseResultMap" type="com.yangya.entity.Area" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="AREA_NAME" property="areaName" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="AREA_SHORT" property="areaShort" jdbcType="VARCHAR" />
+    <result column="AREA_IS_HOT" property="areaIsHot" jdbcType="VARCHAR" />
+    <result column="AREA_SEQUENCE" property="areaSequence" jdbcType="DECIMAL" />
+    <result column="AREA_PARENT_ID" property="areaParentId" jdbcType="DECIMAL" />
+    <result column="INIT_DATA" property="initData" jdbcType="VARCHAR" />
+    <result column="INIT_ADDR" property="initAddr" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, AREA_NAME, AREA_CODE, AREA_SHORT, AREA_IS_HOT, AREA_SEQUENCE, AREA_PARENT_ID, 
+    INIT_DATA, INIT_ADDR
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from area
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from area
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.yangya.entity.Area" >
+    insert into area (ID, AREA_NAME, AREA_CODE, 
+      AREA_SHORT, AREA_IS_HOT, AREA_SEQUENCE, 
+      AREA_PARENT_ID, INIT_DATA, INIT_ADDR
+      )
+    values (#{id,jdbcType=DECIMAL}, #{areaName,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{areaShort,jdbcType=VARCHAR}, #{areaIsHot,jdbcType=VARCHAR}, #{areaSequence,jdbcType=DECIMAL}, 
+      #{areaParentId,jdbcType=DECIMAL}, #{initData,jdbcType=VARCHAR}, #{initAddr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangya.entity.Area" >
+    insert into area
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="areaName != null" >
+        AREA_NAME,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="areaShort != null" >
+        AREA_SHORT,
+      </if>
+      <if test="areaIsHot != null" >
+        AREA_IS_HOT,
+      </if>
+      <if test="areaSequence != null" >
+        AREA_SEQUENCE,
+      </if>
+      <if test="areaParentId != null" >
+        AREA_PARENT_ID,
+      </if>
+      <if test="initData != null" >
+        INIT_DATA,
+      </if>
+      <if test="initAddr != null" >
+        INIT_ADDR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaShort != null" >
+        #{areaShort,jdbcType=VARCHAR},
+      </if>
+      <if test="areaIsHot != null" >
+        #{areaIsHot,jdbcType=VARCHAR},
+      </if>
+      <if test="areaSequence != null" >
+        #{areaSequence,jdbcType=DECIMAL},
+      </if>
+      <if test="areaParentId != null" >
+        #{areaParentId,jdbcType=DECIMAL},
+      </if>
+      <if test="initData != null" >
+        #{initData,jdbcType=VARCHAR},
+      </if>
+      <if test="initAddr != null" >
+        #{initAddr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangya.entity.Area" >
+    update area
+    <set >
+      <if test="areaName != null" >
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaShort != null" >
+        AREA_SHORT = #{areaShort,jdbcType=VARCHAR},
+      </if>
+      <if test="areaIsHot != null" >
+        AREA_IS_HOT = #{areaIsHot,jdbcType=VARCHAR},
+      </if>
+      <if test="areaSequence != null" >
+        AREA_SEQUENCE = #{areaSequence,jdbcType=DECIMAL},
+      </if>
+      <if test="areaParentId != null" >
+        AREA_PARENT_ID = #{areaParentId,jdbcType=DECIMAL},
+      </if>
+      <if test="initData != null" >
+        INIT_DATA = #{initData,jdbcType=VARCHAR},
+      </if>
+      <if test="initAddr != null" >
+        INIT_ADDR = #{initAddr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangya.entity.Area" >
+    update area
+    set AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      AREA_SHORT = #{areaShort,jdbcType=VARCHAR},
+      AREA_IS_HOT = #{areaIsHot,jdbcType=VARCHAR},
+      AREA_SEQUENCE = #{areaSequence,jdbcType=DECIMAL},
+      AREA_PARENT_ID = #{areaParentId,jdbcType=DECIMAL},
+      INIT_DATA = #{initData,jdbcType=VARCHAR},
+      INIT_ADDR = #{initAddr,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="selectByPid" resultMap="BaseResultMap">
+  	SELECT * FROM area WHERE AREA_PARENT_ID=#{pid}
+  </select>
+</mapper>
